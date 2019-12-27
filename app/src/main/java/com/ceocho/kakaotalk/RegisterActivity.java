@@ -22,6 +22,9 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.HashMap;
 
+import static com.ceocho.kakaotalk.R.id.btn_register;
+import static com.ceocho.kakaotalk.R.id.email;
+
 public class RegisterActivity extends AppCompatActivity {
 
     MaterialEditText username, email, password;
@@ -49,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 String txt_username = username.getText().toString();
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
