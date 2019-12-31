@@ -6,9 +6,11 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,12 +24,12 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.HashMap;
 
-import static com.ceocho.kakaotalk.R.id.btn_register;
-import static com.ceocho.kakaotalk.R.id.email;
-
 public class RegisterActivity extends AppCompatActivity {
 
     MaterialEditText username, email, password;
+//    EditText test;
+
+//    EditText username, email, password;
     Button btn_register;
 
     FirebaseAuth auth;
@@ -48,18 +50,25 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         btn_register = findViewById(R.id.btn_register);
 
+//        test = (EditText) findViewById(R.id.test);
+
         auth = FirebaseAuth.getInstance();
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+
+//                String txt_test = test.getText().toString();
+
                 String txt_username = username.getText().toString();
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
-                if (TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
+//                Toast.makeText(RegisterActivity.this, txt_test, Toast.LENGTH_SHORT).show();
+
+                if (TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
                     Toast.makeText(RegisterActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
-                } else if (txt_password.length() < 6){
+                } else if (txt_password.length() < 6) {
                     Toast.makeText(RegisterActivity.this, "password must be at least 6 character", Toast.LENGTH_SHORT).show();
                 } else {
                     register(txt_username, txt_email, txt_password);
