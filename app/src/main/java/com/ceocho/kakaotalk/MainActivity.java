@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -18,7 +19,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.ceocho.kakaotalk.Fragments.ChatsFragment;
 import com.ceocho.kakaotalk.Fragments.UsersFragment;
+import com.ceocho.kakaotalk.Model.Chat;
 import com.ceocho.kakaotalk.Model.User;
+import com.ceocho.kakaotalk.adapter.MessageAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
