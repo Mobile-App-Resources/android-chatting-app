@@ -124,7 +124,7 @@ public class ProfileFragment extends Fragment {
 
             uploadTask = fileReference.putFile(imageUri);
 
-            uploadTask.continueWith(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override
                 public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                     if (!task.isSuccessful()){
@@ -167,8 +167,8 @@ public class ProfileFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null){
+        if ((requestCode == IMAGE_REQUEST) && (resultCode == RESULT_OK)
+                && (data != null) && (data.getData() != null)){
             imageUri = data.getData();
 
             if (uploadTask != null && uploadTask.isInProgress()){
