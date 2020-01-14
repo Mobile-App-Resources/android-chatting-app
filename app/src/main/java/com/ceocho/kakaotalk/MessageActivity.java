@@ -67,8 +67,8 @@ public class MessageActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                //
-                startActivity(new Intent(MessageActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                // crash
+                startActivity(new Intent(getApplicationContext(), StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
 
