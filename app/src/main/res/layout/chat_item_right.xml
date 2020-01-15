@@ -30,6 +30,17 @@
             android:padding="8dp"
             android:layout_alignParentRight="true" />
 
+        <TextView
+            android:id="@+id/txt_seen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/show_message"
+            android:textSize="12sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_alignBaseline="@id/show_message"
+            android:text="1" />
+
+
     </RelativeLayout>
 
 </RelativeLayout>
