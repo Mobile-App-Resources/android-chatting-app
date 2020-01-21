@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import com.ceocho.kakaotalk.Model.Chat;
 import com.ceocho.kakaotalk.Model.Chatlist;
 import com.ceocho.kakaotalk.Model.User;
+import com.ceocho.kakaotalk.Notifications.Data;
+import com.ceocho.kakaotalk.Notifications.Token;
 import com.ceocho.kakaotalk.R;
 import com.ceocho.kakaotalk.adapter.UserAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +29,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +108,15 @@ public class ChatsFragment extends Fragment {
 //            }
 //        });
 
+        updateToken(FirebaseInstanceId.getInstance().getToken());
+
         return view;
+    }
+
+    private void updateToken(String token){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Token");
+        Token token1 = new Token(token);
+        reference.child(fuser.getUid()).setValue(token1);
     }
 
     private void chatList() {
